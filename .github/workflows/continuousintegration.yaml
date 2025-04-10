@@ -21,8 +21,9 @@ jobs:
         run: ./gradlew test
       - name: Build JAR
         run: ./gradlew build
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: app-jar
-          path: build/libs/*.jar
+          path: '**/libs/*.jar'
