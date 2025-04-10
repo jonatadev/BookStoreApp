@@ -11,3 +11,5 @@ public class BookStoreAppApplication {
 	}
 
 }
+
+// https://onlineyamltools.com/validate-yaml
