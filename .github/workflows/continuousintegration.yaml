@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-jar
-          path: '**/libs/*.jar'
+          path: build/libs/*.jar
 
   docker:
     needs: build
@@ -51,7 +51,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: app-jar
-          path: build/libs
+          path: build
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
