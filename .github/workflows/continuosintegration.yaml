@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build:
@@ -25,8 +22,11 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x ./gradlew
 
-      - name: Build with Gradle
+      - name: Build JAR
         run: ./gradlew build
 
-      - name: Run tests with Gradle
-        run: ./gradlew test
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-jar
+          path: build/libs/*.jar

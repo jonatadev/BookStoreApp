@@ -2,35 +2,26 @@ name: Book Store APP Continuous Delivery
 
 on:
   workflow_run:
-    workflows:
-      - Book Store APP Continuous Integration
+    workflows: ["Book Store APP Continuous Integration"]
     types:
       - completed
-    permissions:
-      contents: read
-      id-token: write
 
 jobs:
-  deploy:
+  docker:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
+      - name: Download build artifact (JAR)
+        uses: actions/download-artifact@v3
         with:
-          java-version: 17
-          distribution: temurin
+          name: app-jar
+          path: build/libs
 
-      - name: Make Gradle wrapper executable
-        run: chmod +x ./gradlew
-
-      - name: Build JAR
-        run: ./gradlew build
-
-      - name: Log in to Docker Hub
+      - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
