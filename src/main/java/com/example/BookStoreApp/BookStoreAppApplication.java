@@ -12,4 +12,11 @@ public class BookStoreAppApplication {
 
 }
 
-// https://onlineyamltools.com/validate-yaml
+/*
+
+url: jdbc:h2:mem:bookstoredb
+http://localhost:8080/h2-console
+
+curl -X GET http://localhost:8080/api/books
+
+ */
