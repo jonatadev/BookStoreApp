@@ -1,4 +1,4 @@
-name: [Book Store APP] Continuous Delivery
+name: Book Store APP Continuous Delivery
 
 on:
   push:
