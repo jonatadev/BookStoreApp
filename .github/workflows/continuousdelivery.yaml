@@ -2,10 +2,9 @@ name: Continuous Delivery
 on:
   workflow_run:
     workflows:
-      - Continuous Integration
+      - "Continuous Integration"
     types:
       - completed
-workflow_dispatch:
 
 permissions:
   contents: read
