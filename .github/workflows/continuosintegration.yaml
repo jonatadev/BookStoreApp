@@ -1,4 +1,4 @@
-name: Book Store APP Continuous Integration
+name: Continuous Integration
 
 on:
   push:

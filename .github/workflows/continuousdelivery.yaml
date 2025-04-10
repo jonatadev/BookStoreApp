@@ -1,8 +1,8 @@
-name: Book Store APP Continuous Delivery
+name: Continuous Delivery
 
 on:
   workflow_run:
-    workflows: ["Book Store APP Continuous Integration"]
+    workflows: ["Continuous Integration"]
     types:
       - completed
 
