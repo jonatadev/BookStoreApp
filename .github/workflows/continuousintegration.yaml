@@ -30,7 +30,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-jar
-          path: build/libs
+          path: build/libs/*.jar
 
   docker:
     name: Send To Docker Hub

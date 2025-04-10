@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copia o arquivo JAR gerado para o contêiner
-COPY ../build/libs/BookStoreApp-0.0.1-SNAPSHOT.jar app.jar
+COPY build/libs/*.jar app.jar
 
 # Expõe a porta 8080
 EXPOSE 8080
