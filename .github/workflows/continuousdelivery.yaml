@@ -1,9 +1,11 @@
 name: Book Store APP Continuous Delivery
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows:
+      - Book Store APP Continuous Integration
+    types:
+      - completed
 
 jobs:
   deploy:
